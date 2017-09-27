@@ -6,11 +6,10 @@ import time
 import hmac
 import hashlib
 try:
-    from urllib import urlencode
-    from urlparse import urljoin
+    from urllib import urlencode, urljoin
+
 except ImportError:
-    from urllib.parse import urlencode
-    from urllib.parse import urljoin
+    from urllib.parse import urlencode, urljoin
 
 try:
     from Crypto.Cipher import AES
@@ -53,6 +52,9 @@ ACCOUNT_SET = {
 
 
 def encrypt(api_key, api_secret, export=True, export_fn='secrets.json'):
+    """
+    Function for encrypting api_key and api_secret
+    """
     cipher = AES.new(getpass.getpass(
         'Input encryption password (string will not show)'))
     api_key_n = cipher.encrypt(api_key)
@@ -65,10 +67,13 @@ def encrypt(api_key, api_secret, export=True, export_fn='secrets.json'):
 
 
 def using_requests(request_url, apisign):
+    """
+    Requesting URL using apisign
+    """
     return requests.get(
-                request_url,
-                headers={"apisign": apisign}
-            ).json()
+        request_url,
+        headers={"apisign": apisign}
+    ).json()
 
 
 class Bittrex(object):
@@ -81,6 +86,9 @@ class Bittrex(object):
         self.dispatch = dispatch
 
     def decrypt(self):
+        """
+        Function for decrypting api_key and api_secret
+        """
         if encrypted:
             cipher = AES.new(getpass.getpass(
                 'Input decryption password (string will not show)'))

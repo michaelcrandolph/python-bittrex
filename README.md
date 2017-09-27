@@ -5,8 +5,11 @@ python-bittrex
 
 Python bindings for bittrex.  I am Not associated -- use at your own risk, etc.
 
+https://bittrex.com/api/{version}/{method}?param=value
+
 Tips are appreciated:
-* BTC: 1D7F9ZF6BCoCh2MncK15jxHM1T5BPX9Ajd
+* BTC: 3NxR2zWJdF3HubzMVX2f5kbB4etNeLBU4A 
+* BTC: 1D7F9ZF6BCoCh2MncK15jxHM1T5BPX9Ajd (Original Author)
 * LTC: LaasG9TRa9p32noN2oKUVVqrDFp4Ja1NK3
 
 
